@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.toastSuccess {
+    font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+    color: green;
+    font-size: 1.1rem;
+  }
+
+  .toastError {
+    font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+    color: red;
+    font-size: 1.1rem;
+  }
+
+.Cart{
+    animation: cart 1s forwards ;
+}
+
+@keyframes cart {
+    0%{
+        visibility: visible;
+        transform: translateX(0px);
+        opacity: 0;
+    }
+    100%{
+        visibility: visible;
+        transform: translateX(500px);
+        opacity: 1;
+    }
+}
+
