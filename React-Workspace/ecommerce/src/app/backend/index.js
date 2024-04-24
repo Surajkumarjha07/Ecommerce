@@ -70,11 +70,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/payment', (req, res) => {
-    const { amount } = req.body
+    const {amount} = req.query;
     const amountValue = parseInt(amount)
     console.log(typeof(amountValue));
+    console.log(amountValue);
     const options = {
-        amount: amountValue, // amount in the smallest currency unit
+        amount: amountValue*100, // amount in the smallest currency unit
         currency: 'INR',
         receipt: 'surajkumarjha747@gmail.com' //Unique identifier for the payment
     };

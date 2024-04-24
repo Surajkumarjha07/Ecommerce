@@ -1,61 +1,68 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
+import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function Footer() {
+  const [email, setemail] = useState("")
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push(`./signup?email=${email}`)
+  }
+
   return (
     <div>
       <footer className="text-red-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap md:text-left text-center order-first">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="title-font font-medium text-red-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+              <h2 className="title-font font-medium text-red-900 tracking-widest text-sm mb-3">Connect With Us</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>First Link</Link>
+                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>Twitter</Link>
                 </li>
                 <li>
-                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>Second Link</Link>
+                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>Facebook</Link>
                 </li>
                 <li>
-                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>Third Link</Link>
-                </li>
-                <li>
-                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>Fourth Link</Link>
+                  <Link className="text-red-600 hover:text-red-800 cursor-pointer" href={'#'}>Instagram</Link>
                 </li>
               </nav>
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="title-font font-medium text-red-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+              <h2 className="title-font font-medium text-red-900 tracking-widest text-sm mb-3">Make Money With Us</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">First Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Sell on Amexo</Link>
                 </li>
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Second Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Sell under Amexo Accelerator</Link>
                 </li>
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Third Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Amexo Global Selling</Link>
                 </li>
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Fourth Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Become an Affiliate</Link>
                 </li>
               </nav>
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="title-font font-medium text-red-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+              <h2 className="title-font font-medium text-red-900 tracking-widest text-sm mb-3">Get to Know Us</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">First Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">About Us</Link>
                 </li>
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Second Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Careers</Link>
                 </li>
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Third Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Press Release</Link>
                 </li>
                 <li>
-                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Fourth Link</Link>
+                  <Link href={'#'} className="text-red-600 hover:text-red-800 cursor-pointer">Amexo Science</Link>
                 </li>
               </nav>
             </div>
@@ -64,9 +71,9 @@ export default function Footer() {
               <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
                 <div className="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
                   <label htmlFor="footer-field" className="leading-7 text-sm text-red-600">E-Mail</label>
-                  <input type="text" id="footer-field" name="footer-field" className="w-full bg-red-100 bg-opacity-50 rounded border border-red-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-red-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                  <input type="text" id="footer-field" name="footer-field" className="w-full bg-red-100 bg-opacity-50 rounded border border-red-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-red-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={email} onChange={e=>setemail(e.target.value)}/>
                 </div>
-                <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Subscribe</button>
+                <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={handleClick}>Subscribe</button>
               </div>
               <p className="text-red-500 text-sm mt-2 md:text-left text-center">Please Enter your E-mail to get
                 <br className="lg:block hidden" /> access to our store

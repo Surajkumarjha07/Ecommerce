@@ -44,7 +44,7 @@ export default function page() {
                         position: 'top-center',
                         bodyClassName: "toastSuccess",
                     })
-                    router.push('/dashboard')
+                    router.push('../page')
                 }
                 else if (response.status === 401) {
                     toast("Incorrect Password", {

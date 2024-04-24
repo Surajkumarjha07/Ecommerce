@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import '../globals.css'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,6 +12,9 @@ export default function page() {
   let [email, setemail] = useState("")
   let [password, setpassword] = useState("")
   const router = useRouter()
+  
+  const SearchParams = useSearchParams()
+  email = SearchParams.get("email")
 
   const handleName = (e) => {
     setname(e.target.value)
@@ -41,7 +44,7 @@ export default function page() {
       })
 
       if (response.status === 200) {
-      if (email !== "" && name !== "" && password !== "") {
+        if (email !== "" && name !== "" && password !== "") {
           toast("User Registered! Login Now", {
             hideProgressBar: true,
             autoClose: 1500,
@@ -60,7 +63,7 @@ export default function page() {
             bodyClassName: "toastError"
           })
         }
-        
+
       }
       else if (response.status === 502) {
         toast("User Already Registered", {
@@ -91,6 +94,8 @@ export default function page() {
       })
     }
   };
+
+  // const email = SearchParams.get("email");
 
   return (
     <>
